@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  app:
+    build: .
+    volumes:
+      - ${PWD}:/app
+      - ./vendor:/usr/local/bundle
+    command: ["bundle", "exec", "ruby", "app.rb", "-p", "8080", "-o", "0.0.0.0"]
+    environment: 
+      - REDIS_URL=redis://toxi:40000/0
+    ports: 
+      - "8080:8080"
+  
+  toxi:
+    image: shopify/toxiproxy
+
+  redis:
+    image: redis:5.0.7
