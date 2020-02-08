@@ -1,5 +1,4 @@
 require 'redis'
-require 'logger'
 
 module Cache
   class << self

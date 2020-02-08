@@ -10,6 +10,9 @@ clean:
 shell:
 	docker-compose exec app sh
 
+toxi:
+	docker-compose exec toxi sh
+
 populate:
 	docker-compose exec app rake toxiproxy:populate
 	docker-compose exec app rake redis:populate
