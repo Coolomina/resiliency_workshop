@@ -1,9 +1,9 @@
 require 'toxiproxy'
+require_relative '../initializers/toxi'
 
 namespace :toxiproxy do
 
-  Toxiproxy.host = 'http://toxi:8474'
-
+  Toxiproxy.host = Toxi.host
 
   desc "Populates toxiproxy URLs"
   task :populate do

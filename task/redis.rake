@@ -1,13 +1,8 @@
-require 'redis'
+require_relative '../infrastructure/cache'
 
 namespace :redis do
 
-  host = 'toxi'
-  port = 40000
-  redis = Redis.new(
-    :url => "redis://#{host}:#{port}/0",
-    :timeout => 1
-  )
+  redis = Cache.client
 
   desc 'Populates the redis'
   task :populate do

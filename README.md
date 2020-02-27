@@ -28,3 +28,7 @@ $ /go/bin/toxiproxy-cli toxic add redis -t latency -a latency=2000
 ```
 
 Profit!
+
+# TODO
+- Unificar configuración en initializer
+- Rspec: surround -> helper con bloque -> yield

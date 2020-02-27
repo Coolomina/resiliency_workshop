@@ -5,11 +5,13 @@ services:
     volumes:
       - ${PWD}:/app
       - ./vendor:/usr/local/bundle
-    command: ["bundle", "exec", "ruby", "app.rb", "-p", "8080", "-o", "0.0.0.0"]
-    environment: 
+    command: ["bundle", "exec", "puma", "config.ru", "-C", "puma.rb"]
+    environment:
       - REDIS_URL=redis://toxi:40000/0
+      - APP_ENV=development
+      - TOXI_HOST=http://toxi:8474
     ports: 
-      - "8080:8080"
+      - "8080:9292"
   
   toxi:
     image: shopify/toxiproxy
